@@ -8,7 +8,7 @@ int main()
 	int jackpot=0;
 	int player=5;
 	
-	cout << "±mª÷:";
+	cout << "Â±mÂªÃ·:";
 	cin >> jackpot;
 	
 	srand(time(0));
