@@ -1,11 +1,12 @@
 #include<iostream>
+#include<string>
 #include<iomanip>
 #include<cstdlib>
 #include<ctime>
 #include<conio.h>
 using namespace std;
 
-void print(string array[4][4]) //±Æ¦C 
+void print(string array[4][4]) //æŽ’åˆ— 
 {
 	for(int i=0; i<4; i++)
 	{
@@ -17,7 +18,7 @@ void print(string array[4][4]) //±Æ¦C
 	}
 }
 
-int *change(string array[4][4]) //§ä¬P¬P 
+int *change(string array[4][4]) //æ‰¾æ˜Ÿæ˜Ÿ 
 {
 	int *point = new int[2];
 	for(int i=0; i<4; i++)
@@ -34,7 +35,7 @@ int *change(string array[4][4]) //§ä¬P¬P
 	}
 }
 
-void shuffle(string array[][4]) //¬~µP 
+void shuffle(string array[][4]) //æ´—ç‰Œ 
 {
 	for(int i=0; i<1000; i++)
 	{
@@ -63,7 +64,7 @@ void shuffle(string array[][4]) //¬~µP
 	}
 }
 
-void move(string array[][4]) //²¾°Ê 
+void move(string array[][4]) //ç§»å‹• 
 {
 	int *starPoint = change(array);
 		int row = *starPoint;
@@ -74,26 +75,26 @@ void move(string array[][4]) //²¾°Ê
 		int input = _getch();
 		switch(input)
 		{
-			case 72: //¤W 
+			case 72: //ä¸Š 
 				if(row!=0)
 					swap(array[row][col], array[row-1][col]);
 				break;
-			case 80: //¤U 
+			case 80: //ä¸‹ 
 				if(row!=3)
 					swap(array[row][col], array[row+1][col]);
 				break;
-			case 75: //¥ª 
+			case 75: //å·¦ 
 				if(col!=0)
 					swap(array[row][col], array[row][col-1]);
 				break;
-			case 77: //¥k 
+			case 77: //å³ 
 				if(col!=3)
 					swap(array[row][col], array[row][col+1]);	
 				break;
 		}
 }
 
-bool isDone(string array[][4]) //§PÂ_¬O§_§¹¦¨ 
+bool isDone(string array[][4]) //åˆ¤æ–·æ˜¯å¦å®Œæˆ 
 {
 	string ans[4][4] = {{"1","2","3","4"},{"5","6","7","8"},{"9","10","11","12"},{"13","14","15","*"}};
 	
@@ -111,18 +112,18 @@ bool isDone(string array[][4]) //§PÂ_¬O§_§¹¦¨
 
 int main()
 {
-	string array[4][4] = {{"1","2","3","4"},{"5","6","7","8"},{"9","10","11","12"},{"13","14","15","*"}}; //ªì©l¤Æ 
+	string array[4][4] = {{"1","2","3","4"},{"5","6","7","8"},{"9","10","11","12"},{"13","14","15","*"}}; //åˆå§‹åŒ– 
 	
-	//¬~µP 
+	//æ´—ç‰Œ 
 	srand(time(0));
 	shuffle(array);
 	
-	//±ÀµP»P§PÂ_ 
+	//æŽ¨ç‰Œèˆ‡åˆ¤æ–· 
 	while(true)
 	{
-		move(array); //±À½L 
-		system("cls"); //²MªÅµe­± 
-		if(isDone(array)) break; //§PÂ_µª®×­Y¥¿½T¤Î¸õ¥X°j°é 
+		move(array); //æŽ¨ç›¤ 
+		system("cls"); //æ¸…ç©ºç•«é¢ 
+		if(isDone(array)) break; //åˆ¤æ–·ç­”æ¡ˆè‹¥æ­£ç¢ºåŠè·³å‡ºè¿´åœˆ 
 	}
 	print(array);
 	cout << "Win" << endl;
