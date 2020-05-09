@@ -30,7 +30,7 @@ int main()
                 if(sudoku[i][j] == 0)
                 {
                     cout << " " << " | ";
-                    count++;
+                    //count++;
                 }
                 else
                 {
@@ -40,12 +40,22 @@ int main()
 		    }
 		    cout << endl;
 	    }
-        if(count == 0)
-        {
-            space = true;
-        }
+//        if(count != 0)
+//			cout << "你還有 " << count << " 個空格尚未填寫!!" << endl;
+//		else
+//		{
+//			cout << "恭喜你過關!!" << endl;
+//			space = true;
+//		}
+        
+        cout << "第一個請先輸入有-->的數字， 第二個輸入最上面的數字， 第三個請輸入你要填入的數字: ";
         cin >> x >> y >> num;
-        sudoku[x][y] = num;
+        
+        if(sudoku[x][y] != 0 || num < 0 || num > 9)
+        	cout << "Error!!" << endl;
+        else
+        	sudoku[x-1][y-1] = num;
+
         system("cls");
     }
 }
