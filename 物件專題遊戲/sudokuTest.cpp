@@ -30,7 +30,7 @@ int main()
                 if(sudoku[i][j] == 0)
                 {
                     cout << " " << " | ";
-                    //count++;
+                    count++;
                 }
                 else
                 {
@@ -40,13 +40,16 @@ int main()
 		    }
 		    cout << endl;
 	    }
-//        if(count != 0)
-//			cout << "你還有 " << count << " 個空格尚未填寫!!" << endl;
-//		else
-//		{
-//			cout << "恭喜你過關!!" << endl;
-//			space = true;
-//		}
+        if(count != 0)
+		{
+			cout << "你還有 " << count << " 個空格尚未填寫!!" << endl;
+			count = 0;
+		}
+		else
+		{
+			cout << "恭喜你過關!!" << endl;
+			space = true;
+		}
         
         cout << "第一個請先輸入有-->的數字， 第二個輸入最上面的數字， 第三個請輸入你要填入的數字: ";
         cin >> x >> y >> num;
